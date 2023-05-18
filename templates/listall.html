@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}顯示所有資料{% endblock %}
+{% block content %}
+<br><br><br>
+
+	
+	
+	<h2>顯示 student 資料表所有資料</h2>
+	<table class="table">
+		<th class="table-active">編號</th>
+		<th class="table-active">姓名</th>
+		<th class="table-active">學號</th>
+		<th class="table-active">性別</th>
+		<th class="table-active">生日</th>
+		<th class="table-active">郵件帳號</th>
+		<th class="table-active">電話</th>
+		<th class="table-active">地址</th>
+		<th class="table-active">修改</th>
+		<th class="table-active">刪除</th>
+		{% for student in allStudents %}
+			<tr>
+				<td>{{ student.id }} </td>
+				<td>{{ student.stdName }} </td>
+				<td>{{ student.stdID }} </td>
+				<td>{{ student.stdSex}} </td>
+				<td>{{ student.stdBirth }} </td>
+				<td>{{ student.stdEmail }} </td>
+				<td>{{ student.stdPhone}} </td>
+				<td>{{ student.stdAddress }} </td>
+				<td><a href="/edit/{{ student.stdID }}" button type="button" class="btn btn-outline-primary">編輯</a></td>
+				<td><a href="/delete/{{ student.stdID }}" button type="button" class="btn btn-outline-primary">刪除</a></td>
+
+			</tr>
+
+		{% endfor %}
+		<td colspan="10" align="center"><a href="/post1/" button type="button" class="btn btn-outline-primary">新增學生資料</a></td>
+	</table>
+
+
+{% endblock %}	

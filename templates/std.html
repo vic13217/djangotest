@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}顯示所有資料{% endblock %}
+{% block content %}
+<br><br><br>
+	<head>
+		{% load static %}
+		<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+			{% for std in stds %}
+				<h1>第{{forloop.counter}}位學生</h1>
+				<h2>
+				<ul>
+					<li>姓名:{{std.name}}</li>
+					<li>學號:{{std.sid}}</li>
+					<li>年齡:{{std.age}}</li>
+				</ul>
+				</h2>
+			{% empty %}
+				沒有任何資料
+			{% endfor %}
+		
+	</body>
+{% endblock %}	
